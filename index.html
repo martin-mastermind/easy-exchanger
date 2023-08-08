@@ -14,6 +14,49 @@
     <link rel="stylesheet" href="./style.css">
   </head>
   <body>
+    <main>
+      <header>
+        <h1>Обменник валют</h1>
+      </header>
+      <section class="exchanger">
+        <article class="exchanger__inputs">
+          <div class="exchanger__inputs-item">
+            <select id="currency-left">
+              <option value="" selected disabled>Выберите валюту</option>
+              <option value="RUB">Рубли</option>
+              <option value="USD">Доллары</option>
+              <option value="BYN">Белорусские рубли</option>
+              <option value="EUR">Евро</option>
+              <option value="UAH">Гривны</option>
+            </select>
+            <input id="amount-left" type="text" placeholder="Введите сумму">
+          </div>
+          <div class="exchanger__inputs-divider">→</div>
+          <div class="exchanger__inputs-item">
+            <select id="currency-right">
+              <option value="" selected disabled>Выберите валюту</option>
+              <option value="RUB">Рубли</option>
+              <option value="USD">Доллары</option>
+              <option value="BYN">Белорусские рубли</option>
+              <option value="EUR">Евро</option>
+              <option value="UAH">Гривны</option>
+            </select>
+            <input id="amount-right" type="text" placeholder="Введите сумму">
+          </div>
+        </article>
+        <button class="exchanger__submit">Обменять</button>
+      </section>
+      <section class="history">
+        <h2>История запросов</h2>
+        <article class="history__list">
+          <div class="history__list-item">
+            <span class="item-from">100 RUB</span>
+            <span class="item-to">2 USD</span>
+          </div>
+        </article>
+      </section>
+    </main>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
