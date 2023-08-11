@@ -1,4 +1,4 @@
-const TIME_LIMIT = 300000 // 5 минут
+const TIME_LIMIT = 300000 // 5 minutes
 
 const currencies = {
   left: document.querySelector('#currency-left'),
@@ -38,22 +38,22 @@ function createHistoryItem(history) {
 
 async function exchange(from, to, amount) {
   if (!from) {
-    alert('Не выбрана валюта `ИЗ`')
+    alert('Select FROM currency')
     return
   }
 
   if (!to) {
-    alert('Не выбрана валюта `В`')
+    alert('Select TO currency')
     return
   }
 
   if (from === to) {
-    alert('Выбраны одинаковые валюты обмена')
+    alert('Select different currencies')
     return
   }
 
   if (isNaN(amount)) {
-    alert('Введенная сумма не является числом')
+    alert('Entered amount is not a number')
     return
   }
 
@@ -87,12 +87,20 @@ async function exchange(from, to, amount) {
       result: (+json.conversion_result).toFixed(2)
     }
   } catch {
-    alert('Во время получения данных произошла ошибка. Повторите попытку')
+    alert('There is an error while getting data. Try again...')
     return
   }
 }
 
-arrow.addEventListener('click', () => (arrow.classList.toggle('reversed')))
+arrow.addEventListener('click', () => {
+  arrow.classList.toggle('reversed')
+
+  const inputSide = isArrowReversed() ? 'right' : 'left'
+  const resultSide = isArrowReversed() ? 'left' : 'right'
+
+  amounts[inputSide].disabled = false
+  amounts[resultSide].disabled = true
+})
 
 submitButton.addEventListener('click', async () => {
   const inputSide = isArrowReversed() ? 'right' : 'left'

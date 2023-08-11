@@ -84,6 +84,11 @@ main {
   box-shadow: 0 0 .5rem .125rem var(--text-color);
 }
 
+.exchanger__inputs-item input:disabled {
+  box-shadow: none;
+  border: 1px solid #888;
+}
+
 .exchanger__inputs-divider {
   font-size: 4rem;
 
